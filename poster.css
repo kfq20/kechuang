@@ -1,0 +1,208 @@
+:root {
+  --ink: #17314d;
+  --ink-soft: #5d748a;
+  --orange: #ff7a18;
+  --pink: #ef476f;
+  --teal: #17bebb;
+  --yellow: #ffd166;
+  --shadow: 0 28px 80px rgba(23, 49, 77, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans SC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255, 209, 102, 0.75), transparent 26%),
+    radial-gradient(circle at 88% 18%, rgba(23, 190, 187, 0.32), transparent 22%),
+    linear-gradient(160deg, #fff9f0 0%, #ebf8ff 50%, #fff2e0 100%);
+}
+
+.poster-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.poster-card {
+  position: relative;
+  overflow: hidden;
+  width: min(980px, 100%);
+  border-radius: 36px;
+  padding: 38px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(23, 49, 77, 0.08);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.poster-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.45;
+}
+
+.poster-glow-left {
+  left: -60px;
+  top: -70px;
+  background: rgba(255, 209, 102, 0.75);
+}
+
+.poster-glow-right {
+  right: -70px;
+  bottom: -80px;
+  background: rgba(23, 190, 187, 0.42);
+}
+
+.poster-head,
+.poster-body,
+.info-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.poster-head {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 22px;
+}
+
+.eyebrow,
+.info-label,
+.scan-text,
+.site-url {
+  margin: 0;
+}
+
+.eyebrow,
+.info-label {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.poster-head h1 {
+  margin: 0;
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: clamp(2.6rem, 5vw, 4.3rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 640px;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.poster-body {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+}
+
+.info-card,
+.qr-frame {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 16px 34px rgba(23, 49, 77, 0.1);
+}
+
+.info-card {
+  padding: 20px 22px;
+  border: 1px solid rgba(23, 49, 77, 0.06);
+}
+
+.badge-card {
+  background: linear-gradient(135deg, rgba(255, 242, 217, 0.9), rgba(255, 255, 255, 0.9));
+}
+
+.badge-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.45rem;
+  font-family: "ZCOOL KuaiLe", cursive;
+}
+
+.intro-card ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  font-weight: 700;
+}
+
+.tip-card p {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+
+.qr-panel {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.qr-frame {
+  width: min(100%, 380px);
+  padding: 20px;
+  border: 1px solid rgba(23, 49, 77, 0.06);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 243, 220, 0.95));
+}
+
+.qr-frame img {
+  display: block;
+  width: 100%;
+  border-radius: 24px;
+}
+
+.scan-text {
+  font-family: "ZCOOL KuaiLe", cursive;
+  font-size: 1.35rem;
+}
+
+.site-url {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+
+@media (max-width: 820px) {
+  .poster-card {
+    padding: 26px;
+  }
+
+  .poster-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .poster-shell {
+    padding: 12px;
+  }
+
+  .poster-card {
+    padding: 20px;
+    border-radius: 28px;
+  }
+
+  .poster-head h1 {
+    font-size: 2.25rem;
+  }
+}

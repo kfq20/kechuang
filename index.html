@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ff7a18" />
+    <title>碳小侠未来环保实验室</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="mobile-app-shell">
+      <header class="app-topbar">
+        <div>
+          <p class="tiny-label">互动环保实验室</p>
+          <h1>碳小侠未来环保实验室</h1>
+        </div>
+        <button class="icon-pill" type="button" id="glowButton">点亮</button>
+      </header>
+
+      <main class="app-main">
+        <section class="hero-phone card-block" id="home">
+          <div class="hero-badge-row">
+            <span class="hero-chip hot">低碳冒险进行中</span>
+            <span class="hero-chip">知识 + 行动 + 记录</span>
+          </div>
+          <p class="author-line">作者：六年级三班 孔繁硕</p>
+          <div class="hero-content">
+            <div class="hero-copy">
+              <p class="tiny-label">环保 + 互动 + 科技感</p>
+              <h2>把每天的小行动，变成能发光的绿色能量</h2>
+              <p class="hero-text">
+                在这里可以闯关学知识、观察环保习惯变化、抽取行动任务、生成家庭低碳计划，
+                把“知道要环保”变成“今天就能做到”。
+              </p>
+            </div>
+            <div class="hero-orb-wrap floating">
+              <div class="hero-orb" id="heroOrb">
+                <div class="orb-ring"></div>
+                <div class="orb-core">
+                  <span id="orbScore">86</span>
+                  <small>绿色能量</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#challenge">开始闯关</a>
+            <a class="btn btn-secondary" href="#planner">制定计划</a>
+          </div>
+          <div class="quick-stats">
+            <article>
+              <strong id="actionCount">18</strong>
+              <span>已完成行动</span>
+            </article>
+            <article>
+              <strong id="carbonScore">86</strong>
+              <span>低碳指数</span>
+            </article>
+            <article>
+              <strong id="badgeCount">3</strong>
+              <span>点亮徽章</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="notice-strip card-block" id="pitch">
+          <div>
+            <p class="tiny-label">项目核心</p>
+            <h3>环保不是口号，而是能被记录和坚持的日常习惯</h3>
+          </div>
+          <ul class="mini-bullets">
+            <li>在闯关中认识垃圾分类和节能常识</li>
+            <li>在图表里观察一周环保行为的变化</li>
+            <li>在任务卡里找到今天就能做到的小目标</li>
+          </ul>
+        </section>
+
+        <section class="section-stack" id="dashboard">
+          <div class="section-head">
+            <p class="tiny-label">环保看板</p>
+            <h3>本周绿色行动观察站</h3>
+          </div>
+          <article class="card-block checkin-card">
+            <div class="section-head compact">
+              <div>
+                <p class="tiny-label">今日打卡</p>
+                <h3>完成一个动作，就给今天加一分</h3>
+              </div>
+              <div class="checkin-tools">
+                <span class="chart-tag" id="todayScoreTag">今日已记录 0 次行动</span>
+                <button class="reset-link" type="button" id="resetWeekButton">清空本周记录</button>
+              </div>
+            </div>
+            <div class="checkin-grid" id="checkinGrid">
+              <button class="checkin-chip" type="button" data-action="垃圾分类">分类投放</button>
+              <button class="checkin-chip" type="button" data-action="随手关灯">随手关灯</button>
+              <button class="checkin-chip" type="button" data-action="节约用水">节约用水</button>
+              <button class="checkin-chip" type="button" data-action="绿色出行">绿色出行</button>
+              <button class="checkin-chip" type="button" data-action="自带水杯">自带水杯</button>
+              <button class="checkin-chip" type="button" data-action="旧物利用">旧物利用</button>
+            </div>
+          </article>
+          <div class="metric-grid">
+            <article class="metric-card navy">
+              <span>连续活跃</span>
+              <strong id="streakCount">4天</strong>
+              <small>持续行动会积累绿色能量</small>
+            </article>
+            <article class="metric-card mango">
+              <span>知识掌握度</span>
+              <strong id="masteryScore">72%</strong>
+              <small>答题与任务会一起提升它</small>
+            </article>
+          </div>
+          <article class="card-block chart-card">
+            <div class="section-head compact">
+              <div>
+                <p class="tiny-label">一周趋势</p>
+                <h3>点击柱子，看看哪一天最绿色</h3>
+              </div>
+              <span class="chart-tag" id="trendTag">周一：完成 3 个环保动作</span>
+            </div>
+            <div class="bars" aria-label="环保行动柱状图" id="bars"></div>
+            <div class="trend-detail" id="trendDetail">
+              <div>
+                <p class="tiny-label">今日观察</p>
+                <h4 id="trendDay">周一</h4>
+              </div>
+              <strong id="trendValue">3 次行动</strong>
+              <p id="trendNote">今天主要完成了垃圾分类、随手关灯和水杯重复使用。</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-stack" id="challenge">
+          <div class="section-head">
+            <p class="tiny-label">互动挑战</p>
+            <h3>环保知识冒险闯关</h3>
+          </div>
+          <article class="card-block question-card">
+            <div class="question-head">
+              <span class="question-pill" id="questionCounter">第 1 题 / 5 题</span>
+              <div class="question-meta">
+                <span class="question-hint" id="questionCategory">垃圾分类</span>
+                <span class="question-hint" id="questionLevel">入门</span>
+              </div>
+            </div>
+            <div class="progress-track"><span id="quizProgressBar"></span></div>
+            <h3 id="questionText">喝完的矿泉水瓶应该投进哪个垃圾桶？</h3>
+            <div class="option-grid" id="options"></div>
+            <div class="feedback-card" id="feedbackCard">
+              <p class="feedback" id="feedback">请选择一个答案，看看你是不是环保小达人。</p>
+            </div>
+            <div class="action-row">
+              <button class="btn btn-primary" id="nextQuestion" type="button">下一题</button>
+              <button class="btn btn-secondary" id="resetQuiz" type="button">重新开局</button>
+            </div>
+          </article>
+          <article class="card-block badge-card">
+            <div>
+              <p class="tiny-label">当前称号</p>
+              <h3 id="badgeTitle">地球巡护员</h3>
+            </div>
+            <div class="badge-orbit" id="badgeOrbit">
+              <span id="badgeIcon">♻</span>
+            </div>
+            <div class="badge-track">
+              <span id="correctCount">答对 0 题</span>
+              <span id="pointCount">绿色积分 0</span>
+              <span id="streakHint">连对 0 题</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-stack" id="planner">
+          <div class="section-head">
+            <p class="tiny-label">计划生成器</p>
+            <h3>给自己定一份可坚持的低碳计划</h3>
+          </div>
+          <form class="card-block planner-form" id="planForm">
+            <label>
+              <span>我的名字</span>
+              <input id="studentName" name="studentName" type="text" placeholder="比如：小宇" />
+            </label>
+            <label>
+              <span>我最想改善</span>
+              <select id="goalSelect" name="goalSelect">
+                <option value="省电">省电</option>
+                <option value="垃圾分类">垃圾分类</option>
+                <option value="节约用水">节约用水</option>
+                <option value="绿色出行">绿色出行</option>
+              </select>
+            </label>
+            <label>
+              <span>每天可以坚持</span>
+              <select id="timeSelect" name="timeSelect">
+                <option value="5分钟">5分钟</option>
+                <option value="10分钟">10分钟</option>
+                <option value="15分钟">15分钟</option>
+              </select>
+            </label>
+            <button class="btn btn-primary wide" type="submit">生成我的环保计划</button>
+          </form>
+          <article class="card-block plan-result">
+            <p class="tiny-label">计划预览</p>
+            <h3>欢迎来到碳小侠任务中心</h3>
+            <div id="planContent">
+              输入名字并选择方向，就能生成一份适合小学生执行的家庭低碳计划。
+            </div>
+          </article>
+        </section>
+
+        <section class="section-stack" id="lab">
+          <div class="section-head">
+            <p class="tiny-label">趣味实验区</p>
+            <h3>让环保任务和未来口号都动起来</h3>
+          </div>
+          <article class="card-block feature-card task-lab">
+            <div class="feature-head">
+              <div>
+                <p class="tiny-label">环保任务扭蛋机</p>
+                <h3>抽一个今天能完成的小挑战</h3>
+              </div>
+              <button class="btn btn-secondary mini-btn" id="taskButton" type="button">再抽一次</button>
+            </div>
+            <div class="task-capsule rarity-common" id="taskCapsule">
+              <div class="task-glow"></div>
+              <div class="task-emoji" id="taskEmoji">🌱</div>
+              <div class="task-content">
+                <div class="task-topline">
+                  <span class="task-type" id="taskType">日常任务</span>
+                  <span class="task-reward" id="taskReward">+8 绿色能量</span>
+                </div>
+                <h4 id="taskTitle">随手关灯小挑战</h4>
+                <p id="taskText">今天坚持随手关灯 3 次，并把完成情况记在小本子上。</p>
+              </div>
+            </div>
+          </article>
+          <article class="card-block feature-card slogan-lab">
+            <div class="feature-head">
+              <div>
+                <p class="tiny-label">未来城市信号舱</p>
+                <h3>切换一条属于绿色城市的宣言</h3>
+              </div>
+              <button class="btn btn-secondary mini-btn" id="sloganButton" type="button">刷新灵感</button>
+            </div>
+            <div class="slogan-capsule theme-sky" id="sloganCapsule">
+              <div class="slogan-icon" id="sloganIcon">✨</div>
+              <div>
+                <p class="slogan-title" id="sloganTitle">蓝天频道</p>
+                <p class="slogan-text" id="sloganText">让每一次正确分类，都变成城市里的一颗绿色星星。</p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="section-stack" id="mobile-demo">
+          <div class="section-head">
+            <p class="tiny-label">探索路线</p>
+            <h3>今天可以这样完成一次环保冒险</h3>
+          </div>
+          <article class="card-block demo-card">
+            <ol class="demo-steps">
+              <li>先做 5 道闯关题，看看自己最擅长哪类环保知识。</li>
+              <li>点开一周趋势，观察哪一天完成的环保动作最多。</li>
+              <li>抽出一张任务卡，把今天的小目标马上定下来。</li>
+              <li>生成一份家庭计划，把环保行动坚持一周。</li>
+            </ol>
+          </article>
+        </section>
+
+        <section class="section-stack" id="poster-entry">
+          <article class="card-block poster-entry-card">
+            <div>
+              <p class="tiny-label">二维码海报</p>
+              <h3>打开专属海报页，展示项目名称、作者和扫码入口</h3>
+            </div>
+            <a class="btn btn-primary wide" href="poster.html">查看二维码海报</a>
+          </article>
+        </section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="底部导航">
+        <a href="#home" class="nav-item active">首页</a>
+        <a href="#challenge" class="nav-item">闯关</a>
+        <a href="#dashboard" class="nav-item">看板</a>
+        <a href="#lab" class="nav-item">实验区</a>
+      </nav>
+    </div>
+
+    <div class="toast" id="appToast" aria-live="polite">绿色能量上升中。</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
